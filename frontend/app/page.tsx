@@ -1,6 +1,7 @@
 import RistoranteCard from "./components/RistoranteCard";
 import HealthStatus from "./components/HealthStatus";
 import DocumentList from "./components/DocumentList";
+import SearchBar from "./components/SearchBar";
 
 export default function Home() {
   const nome = "Simone"
@@ -12,6 +13,9 @@ export default function Home() {
       <p className="mt-4 text-lg text-gray-600">
         Il tuo assistente per il menu del ristorante, {nome}!
       </p>
+      <hr className="my-8" />
+      <h2 className="mb-4 text-2xl font-semibold text-gray-800">Cerca nei documenti</h2>
+      <SearchBar />
       <div className="mt-8 flex gap-6">
         <RistoranteCard
           titolo="Menu"

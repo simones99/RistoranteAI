@@ -1,6 +1,7 @@
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.services.search import search_documents
 
 app = FastAPI(title="RistoranteAI")
 
@@ -26,3 +27,9 @@ async def list_documents():
         if f.endswith(".md")
     ]
     return {"documents": documents}
+
+
+@app.get("/api/query")
+async def search(q: str):
+    results = search_documents(q)
+    return {"query": q, "results": results}
