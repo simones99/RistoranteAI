@@ -2,34 +2,20 @@ import RistoranteCard from "./components/RistoranteCard";
 import HealthStatus from "./components/HealthStatus";
 import DocumentList from "./components/DocumentList";
 import SearchBar from "./components/SearchBar";
+import { ChatProvider } from "./contexts/ChatContext";
+import ChatComponent from "./components/ChatComponent";
 
 export default function Home() {
-  const nome = "Simone"
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-8">
-      <h1 className="text-4xl font-bold text-gray-900">RistoranteAI</h1>
-      <HealthStatus />
-      <DocumentList />
-      <p className="mt-4 text-lg text-gray-600">
-        Il tuo assistente per il menu del ristorante, {nome}!
-      </p>
-      <hr className="my-8" />
-      <h2 className="mb-4 text-2xl font-semibold text-gray-800">Cerca nei documenti</h2>
-      <SearchBar />
-      <div className="mt-8 flex gap-6">
-        <RistoranteCard
-          titolo="Menu"
-          descrizione={`Scopri i piatti del nostro ristorante`}
-        />
-        <RistoranteCard
-          titolo="Ricette"
-          descrizione="Le ricette dei nostri piatti tipici"
-        />
-        <RistoranteCard
-          titolo="Allergeni"
-          descrizione="Informazioni su allergeni e intolleranze"
-        />
-      </div>
-    </main>
-  )
+    <ChatProvider>
+      <main className="mx-auto max-w-3xl p-8">
+        <h1 className="mb-6 text-3xl font-bold">RistoranteAI</h1>
+        <div className="mb-6 flex gap-4">
+          <HealthStatus />
+          <DocumentList />
+        </div>
+        <ChatComponent />
+      </main>
+    </ChatProvider>
+  );
 }

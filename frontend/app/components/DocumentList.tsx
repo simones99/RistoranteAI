@@ -23,10 +23,10 @@ export default function DocumentList() {
 
   return (
     <div>
-      <h2 className="mb-3 text-xl font-semibold text-black">Documenti disponibili</h2>
+      <h2 className="mb-3 text-xl font-semibold text-white">Documenti disponibili</h2>
       <ul className="list-inside list-disc space-y-1">
         {documents.map((doc) => (
-          <li key={doc.name} className="text-gray-700">{doc.name}</li>
+          <li key={doc.name} className="text-white">{doc.name}</li>
         ))}
       </ul>
     </div>
